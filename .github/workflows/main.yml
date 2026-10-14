@@ -2,7 +2,8 @@ name: Send emails daily
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 22 * * *'
+    # arXiv announces Sun-Thu 20:00 US Eastern (= Mon-Fri 00:00-01:00 UTC); its RSS lags by 1-2h, so run later
+    - cron: '17 3 * * 1-5'
 
 jobs:
   calculate-and-send:
